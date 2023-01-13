@@ -47,11 +47,16 @@ if [ ! -f "${LOGDIR}/${STEP}" ]; then
       "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
       $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-
-    sudo groupadd docker || true
-    sudo usermod -aG docker $USER  || true
- 
-    newgrp docker || true
+   group=docker
+   if grep -q "^${group}:" /etc/group
+    then
+        sudo usermod -aG docker $USER
+    else
+        sudo groupadd docker
+        sudo usermod -aG docker $USER
+    fi
+    
+    newgrp docker
     #-------------------------------------------------
     finish
 fi
