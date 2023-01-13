@@ -1,8 +1,8 @@
 mkdir -p install.log
-functon start {
+start() {
     touch "$FILE"_started
 }    
-functon finish {
+finish() {
     touch "$FILE"_finished
     touch "$FILE"
 }
