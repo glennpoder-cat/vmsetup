@@ -73,7 +73,7 @@ if [ ! -f "${LOGDIR}/${STEP}" ]; then
     #-------------------------------------------------
     cd ~
     git clone git@git.catalyst-au.net:elearning/docker-dev.git
-
+    rm -rf ~/.config/docker-dev
     mkdir ~/.config/docker-dev
     echo -en "[DEFAULT]\nDOCKER_DEV_ROOT=$HOME/docker-dev" > ~/.config/docker-dev/config
     cd docker-dev
