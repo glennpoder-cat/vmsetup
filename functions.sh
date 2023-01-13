@@ -1,8 +1,9 @@
-mkdir -p install.log
+LOGDIR $(dirname "$0")/install.log
+mkdir -p $LOGDIR
 start() {
-    touch "$FILE"_started
+    touch "${LOGDIR}${STEP}"_started
 }    
 finish() {
-    touch "$FILE"_finished
-    touch "$FILE"
+    touch "${LOGDIR}${STEP}"_finished
+    touch "${LOGDIR}${STEP}"
 }
