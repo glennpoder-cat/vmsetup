@@ -86,7 +86,7 @@ if [ ! -f "${LOGDIR}/${STEP}" ]; then
     echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
     echo '' >> ~/.bashrc
     echo 'if [ -f ~/.config/docker-dev/config ]; then' >> ~/.bashrc
-    echo '  eval $(grep "^DOCKER_DEV_ROOT=" ~/.config/docker-dev/config)' >> >
+    echo '  eval $(grep "^DOCKER_DEV_ROOT=" ~/.config/docker-dev/config)' >> ~/.bashrc
     echo '  eval "$(_CONTROL_COMPLETE=bash_source control)"' >> ~/.bashrc
     echo 'fi' >> ~/.bashrc
     
