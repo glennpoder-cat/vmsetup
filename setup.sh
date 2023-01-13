@@ -15,7 +15,6 @@ fi
 
 STEP=002
 if [ ! -f "${LOGDIR}/${STEP}" ]; then
-    echo "does not exist"
     # step2 - Update and upgrade
     start
     #-------------------------------------------------
@@ -30,7 +29,6 @@ fi
 
 STEP=003
 if [ ! -f "${LOGDIR}/${STEP}" ]; then
-    echo "does not exist"
     # step3 - Install docker
     start
     #-------------------------------------------------
@@ -68,8 +66,7 @@ fi
 
 STEP=004
 if [ ! -f "${LOGDIR}/${STEP}" ]; then
-    echo "does not exist"
-    # step4 - Setup docker container
+    # step4 - Setup docker containers part 1
     start
     #-------------------------------------------------
     rm -rf ~/.config/docker-dev
@@ -91,6 +88,19 @@ if [ ! -f "${LOGDIR}/${STEP}" ]; then
     echo 'fi' >> ~/.bashrc
     
     source ~/.bashrc
+    
+    echo "***** reboot and restart this script *******"
+    
+    #-------------------------------------------------
+    finish
+    exit 0
+fi
+
+STEP=005
+if [ ! -f "${LOGDIR}/${STEP}" ]; then
+    # step5 - Setup docker containers part 2
+    start
+    #-------------------------------------------------
     control build
     #-------------------------------------------------
     finish
