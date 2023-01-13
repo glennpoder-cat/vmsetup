@@ -48,8 +48,8 @@ if [ ! -f "${LOGDIR}/${STEP}" ]; then
       $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 
-    sudo groupadd docker
-    sudo usermod -aG docker $USER
+    sudo groupadd docker || true
+    sudo usermod -aG docker $USER  || true
  
     newgrp docker || true
     #-------------------------------------------------
