@@ -34,11 +34,12 @@ if [ ! -f "${LOGDIR}/${STEP}" ]; then
     # step3 - Install docker
     start
     #-------------------------------------------------
-    sudo apt-get install \
+    sudo apt-get install -y \
        ca-certificates \
        curl \
        gnupg \
-       lsb-release
+       lsb-release \
+       python3-pip
 
     sudo mkdir -p /etc/apt/keyrings
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
