@@ -1,3 +1,16 @@
+. $(dirname "$0")/functions.sh
+
+FILE="~/install.log/step1"
+if [ ! -f "$FILE" ]; then
+    echo "does not exist"
+    # step1
+    start
+    
+    finish
+fi
+
+exit 0
+
 gpg -d keys.tar.gz.gpg | tar -xvzf -
 mkdir ~/.ssh
 cp home/glennpoder/keys/* ~/.ssh/
