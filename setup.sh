@@ -56,9 +56,13 @@ if [ ! -f "${LOGDIR}/${STEP}" ]; then
         sudo usermod -aG docker $USER
     fi
     
-    newgrp docker
+    #newgrp docker
+    
+    echo "***** reboot and restart this script *******"
+    
     #-------------------------------------------------
     finish
+    exit 0
 fi
 
 STEP=004
