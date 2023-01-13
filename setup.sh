@@ -1,7 +1,7 @@
 . $(dirname "$0")/functions.sh
 
 STEP=001
-if [ ! -f "${LOGDIR}$STEP}" ]; then
+if [ ! -f "${LOGDIR}/${STEP}" ]; then
     echo "does not exist"
     # step1
     start
