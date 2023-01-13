@@ -1,4 +1,4 @@
-LOGDIR $(dirname "$0")/install.log
+LOGDIR=$(dirname "$0")/install.log
 mkdir -p $LOGDIR
 start() {
     touch "${LOGDIR}${STEP}"_started
