@@ -1,0 +1,1 @@
+tar -cvzf - folder | gpg -c > folder.tar.gz.gpg
