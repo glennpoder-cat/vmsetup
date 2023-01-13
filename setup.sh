@@ -51,7 +51,7 @@ if [ ! -f "${LOGDIR}/${STEP}" ]; then
     sudo groupadd docker
     sudo usermod -aG docker $USER
  
-    newgrp docker
+    newgrp docker || true
     #-------------------------------------------------
     finish
 fi
