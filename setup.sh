@@ -81,6 +81,17 @@ if [ ! -f "${LOGDIR}/${STEP}" ]; then
     echo -en "[DEFAULT]\nDOCKER_DEV_ROOT=$HOME/docker-dev" > ~/.config/docker-dev/config
     cd docker-dev
     pip install --editable .docker/python
+    
+    echo '' >> ~/.bashrc
+    echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
+    echo '' >> ~/.bashrc
+    echo 'if [ -f ~/.config/docker-dev/config ]; then' >> ~/.bashrc
+    echo '  eval $(grep "^DOCKER_DEV_ROOT=" ~/.config/docker-dev/config)' >> >
+    echo '  eval "$(_CONTROL_COMPLETE=bash_source control)"' >> ~/.bashrc
+    echo 'fi' >> ~/.bashrc
+    
+    source ~/.bashrc
+    control build
     #-------------------------------------------------
     finish
 fi
