@@ -1,7 +1,7 @@
 . $(dirname "$0")/functions.sh
 
-FILE="~/install.log/step1"
-if [ ! -f "$FILE" ]; then
+STEP=001
+if [ ! -f "${LOGDIR}$STEP}" ]; then
     echo "does not exist"
     # step1
     start
